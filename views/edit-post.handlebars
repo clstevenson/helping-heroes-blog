@@ -1,30 +1,14 @@
-<article>
-    <a href="/dashboard">&larr; Back to Dashboard</a>
-    <h2>Edit Post</h2>
-    <form class="edit-post-form">
-        <div>
-            <input type="text" name="post-title" value="{{post.title}}" /> 
-            <br><br>
-            <textarea id="content" name="content"></textarea>
-            <p>{{post.content}}</p> 
-        </div>
-        <div>
-            <a href="/post/{{post.id}}">{{post.content.length}}</a>
-        </div>
-        <button type="submit">Save Post</button>
-        <button type="button" class="delete-post-btn">Delete post</button>
-    </form>
-</article>
-{{!-- <article>
-    <h2>Edit Response</h2>
-    <form class="edit-response-form">
-        <input type="text" name="response-content" value="{{response.id}}"/> 
-            <br><br>
-            <textarea id="res-content" name="content"></textarea>
-            <p>{{response.content}}</p>
-    </form>
-</article> --}}
 
-{{!-- JavaScript Files for Page Functionality --}}
-<script src="/public/js/edit-post.js"></script>
-<script src="/public/js/delete-post.js"></script>
+<a href="/dashboard">&larr; Back to Dashboard</a>
+<div class="edit-post-form">
+    <h3 class="title is-size-5 mt-2">Edit Post</h3>
+    <div>
+        <input class="input m-1" type="text" name="post-title" value="{{title}}" />
+        <textarea class="textarea m-1" id="content" name="content">{{content}}</textarea>
+    </div>
+    <button class="button save-post-btn m-1" data-id="{{id}}">Save Post</button>
+    <!-- <button class="button delete-post-btn m-1 data-id="{{id}}>Delete post</button> -->
+</div>
+
+<script src="/js/edit-post.js"></script>
+<script src="/js/delete-post.js"></script>

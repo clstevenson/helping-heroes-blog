@@ -6,25 +6,25 @@
         {{!-- Create New Post --}}
         <div class="card">
             <div class="card-content">
-                <div class="content">
-                    <h1 class="has-text-centered has-text-danger-dark">Create New Post</h1>
-                    <form class="create-post-form">
-                        <div class="field">
-                            <label for="post-title"><strong>Title</strong></label>
-                            <input type="text" class="input" id="post-title" name="post-title" placeholder="Enter Title"/>
-                        </div>
-                        <div class="field">
-                            <label for="post-text"><strong>Text</strong></label>
-                            <textarea id="content" class="textarea" name="content" placeholder="Share Your Story"></textarea>
-                        </div>
-                        <div class="field">
-                            <div class="control">
-                                <button class="post-btn button is-info has-text-white">Create</button>
-                            </div>
-                        </div>
-                    </form>
+        <div class="content">
+        <h1 class="has-text-centered has-text-danger-dark">Create New Post</h1>
+        <form class="create-post-form">
+            <div class="field">
+                <label for="post-title"><strong>Title</strong></label>
+                <input type="text" class="input" id="post-title" name="post-title" placeholder="Enter Title"/>
+            </div>
+            <div class="field">
+                <label for="post-text"><strong>Text</strong></label>
+                <textarea id="content" class="textarea" name="content" placeholder="Share Your Story"></textarea>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="post-btn button is-info has-text-white">Create</button>
+                </div>
+            </div>
+        </form>
     </section>
-{{!-- Render All Available Posts by Logged In User --}}
+    {{!-- Render All Available Posts by Logged In User --}}
     {{#if posts.length}}
     <section>
         <div class="card my-5">
@@ -37,9 +37,10 @@
                             {{!-- {{> post-info post}} --}}
                             <div class="mb-3">
                                 <a class="mr-3" href="/posts/{{post.id}}">{{post.title}}</a>
-                                <a href="/dashboard/edit-post/{{post.id}}" class="edit-link"><button class="has-text-white is-info button">Edit Post</button></a>
+                                <p>{{post.content}}</p>
                             </div>
                             <div>
+                                <a href="/dashboard/edit-post/{{post.id}}" class="edit-link"><button class="has-text-white is-info button">Edit Post</button></a>
                                 <button class="delete-post-btn button has-text-white is-info" data-id="{{post.id}}">Delete Post</button>
                             </div>
                         </li>
@@ -49,7 +50,9 @@
             </div>
         </div>
     </section>
+    {{/if}}
 
+    {{#if responses.length}}
     <section>
         {{!-- Render All Avaliable Responses by Logged In User --}}
         <div class="card my-5">
@@ -61,8 +64,8 @@
                         <li>
                             <p class="response">{{response.content}}</p>
                             <p>Responding to post {{response.post.title}}</p>
-                            <a href="/dashboard/response-edit/{{response.id}}" class="edit-link"><button class="has-text-white is-info button mb-3">Edit Response</button></a>
                             <div>
+                                <a href="/dashboard/response-edit/{{response.id}}" class="edit-link"><button class="has-text-white is-info button mb-3">Edit Response</button></a>
                                 <button class="delete-response-btn button has-text-white is-info" data-id="{{response.id}}">Delete Response</button>
                             </div>
                         </li>
@@ -73,6 +76,6 @@
         </div>
     </section>
     {{/if}}
-                </div>
-                {{!-- JavaScript File for Page Functionality --}}
-                <script src="/js/create-post.js"></script>
+</div>
+{{!-- JavaScript File for Page Functionality --}}
+<script src="/js/create-post.js"></script>
